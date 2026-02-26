@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator IPK XYZ University</title>
+    <!-- Modern Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Kalkulator IPK Premium untuk mahasiswa XYZ University.">
+</head>
+
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="app-header">
+            <div class="logo-wrapper">
+                <i class="ph ph-graduation-cap"></i>
+            </div>
+            <div class="header-text">
+                <h1>XYZ University IPK Calculator</h1>
+                <p>Kalkulasi nilai akademik Anda dengan akurat dan mudah.</p>
+            </div>
+        </header>
+
+        <section class="card calculator-card">
+            <div class="card-header">
+                <h2>Daftar Mata Kuliah</h2>
+                <button id="add-course-btn" class="btn btn-outline" aria-label="Tambah Mata Kuliah">
+                    <i class="ph ph-plus"></i> Tambah Matkul
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table id="courses-table">
+                    <thead>
+                        <tr>
+                            <th>Mata Kuliah</th>
+                            <th>SKS <i class="ph-fill ph-info info-icon" title="Satuan Kredit Semester"></i></th>
+                            <th>Nilai (NSM) <i class="ph-fill ph-info info-icon"
+                                    title="Nilai Skor Mata Kuliah (0-100)"></i></th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="course-list">
+                        <!-- Course rows will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card-footer">
+                <button id="calculate-btn" class="btn btn-primary">
+                    <i class="ph ph-calculator"></i> Hitung IPK
+                </button>
+            </div>
+        </section>
+
+        <!-- Result Section (Hidden initially) -->
+        <section id="result-section" class="result-card hidden">
+            <div class="result-header">
+                <h2>Hasil Perhitungan IPK</h2>
+                <button id="reset-btn" class="btn btn-icon" aria-label="Reset Ulang">
+                    <i class="ph ph-arrow-counter-clockwise"></i>
+                </button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box main-stat">
+                    <h3>Indeks Prestasi Kumulatif (IPK)</h3>
+                    <div class="stat-value highlight" id="result-ipk">0.00</div>
+                </div>
+                <div class="stat-box sub-stats">
+                    <div class="sub-stat">
+                        <span class="label">Total SKS</span>
+                        <span class="value" id="result-sks">0</span>
+                    </div>
+                    <div class="sub-stat">
+                        <span class="label">Total Poin</span>
+                        <span class="value" id="result-points">0.0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="breakdown-section">
+                <h3>Detail Mata Kuliah</h3>
+                <div class="breakdown-list" id="result-breakdown">
+                    <!-- Breakdown items injected here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="overlay hidden">
+        <div class="spinner"></div>
+        <p>Menghitung...</p>
+    </div>
+
+    <!-- Custom Alert Modal -->
+    <div id="custom-alert" class="overlay hidden" style="z-index: 2000;">
+        <div class="alert-box">
+            <div class="alert-icon">
+                <i class="ph ph-warning-circle"></i>
+            </div>
+            <h3 id="alert-title">Pemberitahuan</h3>
+            <p id="alert-message">Pesan peringatan akan muncul di sini.</p>
+            <button id="alert-ok-btn" class="btn btn-primary">OK</button>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
